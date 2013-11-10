@@ -1,4 +1,9 @@
-/* See LICENSE file for copyright and license details. */
+/*
+dwm config.h
+by Max Tamer-Mahoney <max@mxtm.me>
+*/
+
+/* See LICENSE file for copyright and license details (from suckless). */
 
 /* includes */
 #include "gaplessgrid.c"
