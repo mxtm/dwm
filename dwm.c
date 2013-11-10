@@ -790,8 +790,8 @@ drawbar(Monitor *m) {
 		dc.x = x;
 		if(m->sel) {
 			col = m == selmon ? dc.sel : dc.norm;
-			drawtext(m->sel->name, col, False);
-			drawsquare(m->sel->isfixed, m->sel->isfloating, False, col);
+			/* drawtext(m->sel->name, col, False);
+			drawsquare(m->sel->isfixed, m->sel->isfloating, False, col); */
 		}
 		else
 			drawtext(NULL, dc.norm, False);
@@ -1217,8 +1217,8 @@ monocle(Monitor *m) {
 	for(c = m->clients; c; c = c->next)
 		if(ISVISIBLE(c))
 			n++;
-	if(n > 0) /* override layout symbol */
-		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n);
+	/* if(n > 0) // override layout symbol (we don't want this, & note that was originally block comment)
+		snprintf(m->ltsymbol, sizeof m->ltsymbol, "[%d]", n); */
 	for(c = nexttiled(m->clients); c; c = nexttiled(c->next))
 		resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, False);
 }
