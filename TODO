@@ -1,8 +1,5 @@
-- Finish list of patches
-- Remove window title and square behind it
-- Remove changing of monocle symbol
 - Add selfrestart
 - Patch in uselessgap (for 6.0, modified patch)
 - Patch in gaplessgrid
 - Patch in fibonacci
-- Add personal config.mk and config.h
+- Add personal and config.h
