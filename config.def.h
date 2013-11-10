@@ -1,30 +1,25 @@
 /* See LICENSE file for copyright and license details. */
 
-/* includes */
-#include "gaplessgrid.c"
-#include "fibonacci.c"
-
 /* appearance */
-static const char font[]            = "monospace 8";
-static const char normbordercolor[] = "#5e7175";
-static const char normbgcolor[]     = "#262729";
-static const char normfgcolor[]     = "#a3babf";
-static const char selbordercolor[]  = "#1692d0";
-static const char selbgcolor[]      = "#262729";
-static const char selfgcolor[]      = "#ffffff";
-static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gap pixel between windows */
+static const char font[]            = "-*-terminus-medium-r-*-*-16-*-*-*-*-*-*-*";
+static const char normbordercolor[] = "#444444";
+static const char normbgcolor[]     = "#222222";
+static const char normfgcolor[]     = "#bbbbbb";
+static const char selbordercolor[]  = "#005577";
+static const char selbgcolor[]      = "#005577";
+static const char selfgcolor[]      = "#eeeeee";
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五" };
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Steam",    NULL,       NULL,       0,            True,        -1 },
+	{ "Firefox",  NULL,       NULL,       1 << 8,       False,       -1 },
 };
 
 /* layout(s) */
@@ -34,16 +29,13 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "g",        gaplessgrid },
-	{ "s",        spiral },
-	{ "d",        dwindle },
-	{ "t",        tile },
-	{ "m",        monocle },
-	{ "f",        NULL }, /* floating */
+	{ "[]=",      tile },    /* first entry is default */
+	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[M]",      monocle },
 };
 
 /* key definitions */
-#define MODKEY Mod4Mask /* super key */
+#define MODKEY Mod1Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -55,45 +47,25 @@ static const Layout layouts[] = {
 
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "termite", NULL };
-static const char *lockcmd[]  = { "slock", NULL };
-static const char *volmutecmd[] = { "pulseaudio-ctl", "mute", NULL };
-static const char *volupcmd[] = { "pulseaudio-ctl", "up", NULL };
-static const char *voldowncmd[] = { "pulseaudio-ctl", "down", NULL };
-static const char *playpausekeycmd[] = { "mpc", "toggle", NULL };
-static const char *backkeycmd[] = { "mpc", "prev", NULL };
-static const char *forwardkeycmd[] = { "mpc", "next", NULL };
-static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
-static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
+static const char *termcmd[]  = { "uxterm", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_q,      spawn,          {.v = lockcmd } },
-	{ 0,                XF86XK_AudioMute,      spawn,          {.v = volmutecmd } },
-	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volupcmd } },
-	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = voldowncmd } },
-	{ 0,                XF86XK_AudioPlay,      spawn,          {.v = playpausekeycmd } },
-	{ 0,                XF86XK_AudioPrev,      spawn,          {.v = backkeycmd } },
-	{ 0,                XF86XK_AudioNext,      spawn,          {.v = forwardkeycmd } },
-	{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = englishkbcmd } },
-	{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = arabickbcmd } },
+	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_o,      incnmaster,     {.i = -1 } },
+	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
+	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
-	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -107,7 +79,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	{ MODKEY|ShiftMask,             XK_r,      self_restart,   {0} },
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
@@ -127,3 +102,4 @@ static Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
+
