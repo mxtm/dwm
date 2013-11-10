@@ -224,6 +224,7 @@ static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
 static void scan(void);
+void self_restart(const Arg *arg);
 static Bool sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
@@ -1489,6 +1490,12 @@ scan(void) {
 		if(wins)
 			XFree(wins);
 	}
+}
+
+void
+self_restart(const Arg *arg) {
+	char *const argv[] = { "/home/mxtm/.bin/dwm", NULL };
+	execv(argv[0], argv);
 }
 
 void
