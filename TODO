@@ -1,0 +1,10 @@
+- Finish list of patches
+- Patch in pango
+- Patch in pertag
+- Remove window title and square behind it
+- Remove changing of monocle symbol
+- Add selfrestart
+- Patch in uselessgap (for 6.0, modified patch)
+- Patch in gaplessgrid
+- Patch in fibonacci
+- Add personal config.mk and config.h
