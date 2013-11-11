@@ -24,8 +24,7 @@ static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
 /* tagging */
-// static const char *tags[] = { "一", "二", "三", "四", "五" };
-static const char *tags[] = { "⮫", "⮬", "⮭", "⮮", "⮯" };
+static const char *tags[] = { "一", "二", "三", "四", "五" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -40,11 +39,11 @@ static const Bool resizehints = True; /* True means respect size hints in tiled 
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "⮘",        tile },
-	{ "⮧",        gaplessgrid },
-	{ "⮚",        spiral },
-	{ "⮛",        monocle },
-	{ "⮰",        NULL }, /* floating */
+	{ "t",        tile },
+	{ "g",        gaplessgrid },
+	{ "s",        spiral },
+	{ "m",        monocle },
+	{ "f",        NULL }, /* floating */
 };
 
 /* key definitions */
