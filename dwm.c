@@ -71,14 +71,13 @@ edited and patched by Max Tamer-Mahoney <max@mxtm.me>
 #define TEXTW(X)                (textnw(X, strlen(X)) + dc.font.height)
 
 /* enums */
-enum { CurNormal, CurResize, CurMove, CurLast };        /* cursor */
-enum { ColBorder, ColFG, ColBG, ColLast };              /* color */
+enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
+enum { ColBorder, ColFG, ColBG, ColLast }; /* color */
 enum { NetSupported, NetWMName, NetWMState,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
-       NetWMWindowTypeDialog, NetLast };     /* EWMH atoms */
+       NetWMWindowTypeDialog, NetLast }; /* EWMH atoms */
 enum { WMProtocols, WMDelete, WMState, WMTakeFocus, WMLast }; /* default atoms */
-enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
-       ClkClientWin, ClkRootWin, ClkLast };             /* clicks */
+enum { ClkTagBar, ClkLtSymbol, ClkClientWin, ClkRootWin, ClkLast }; /* clicks */
 
 typedef union {
 	int i;
@@ -493,10 +492,6 @@ buttonpress(XEvent *e) {
 		}
 		else if(ev->x < x + blw)
 			click = ClkLtSymbol;
-		else if(ev->x > selmon->ww - TEXTW(stext))
-			click = ClkStatusText;
-		else
-			click = ClkWinTitle;
 	}
 	else if((c = wintoclient(ev->window))) {
 		focus(c);
