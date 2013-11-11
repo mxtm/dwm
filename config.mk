@@ -1,5 +1,5 @@
 # dwm config.mk
-# patched by Max Tamer-Mahoney with Runiq's fixes for building on Arch
+# patched by Max Tamer-Mahoney with Runiq's fixes for building on Arch with pango
 
 # dwm version
 VERSION = 6.0
