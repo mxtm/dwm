@@ -55,10 +55,10 @@ fibonacci(Monitor *mon, int s) {
 	}
 }
 
-void
+/* void
 dwindle(Monitor *mon) {
 	fibonacci(mon, 1);
-}
+} */
 
 void
 spiral(Monitor *mon) {
