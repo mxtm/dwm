@@ -117,7 +117,7 @@ static Key keys[] = {
 };
 
 /* button definitions */
-/* click can be ClkLtSymbol, ClkStatusText, ClkClientWin, or ClkRootWin */
+/* click can be ClkLtSymbol, ClkClientWin, or ClkRootWin */
 static Button buttons[] = {
 	/* click                event mask      button          function        argument */
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
