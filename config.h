@@ -7,7 +7,6 @@ by Max Tamer-Mahoney <max@mxtm.me>
 
 /* includes */
 #include "gaplessgrid.c"
-#include "fibonacci.c"
 
 /* appearance */
 static const char font[]            = "monospace 8";
