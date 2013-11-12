@@ -1,1 +1,2 @@
-- Continue finding things to do
+- Figure out why when using the floating layout the floating borders do not apply
+- Patch in the ability to move and resize windows with keyboard (moveresize patch)
