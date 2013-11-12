@@ -536,7 +536,7 @@ bstack(Monitor *m) {
 			h = m->wh - mh;
 			resize(c, tx, ty, tw - (2 * c->bw), h - (2 * c->bw), False);
 			if(tw != m->ww)
-				tx += WIDTH(c);
+				tx += WIDTH(c) + gappx * 2;
 		}
 	}
 }
