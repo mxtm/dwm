@@ -5,8 +5,7 @@ by Max Tamer-Mahoney <max@mxtm.me>
 
 /* See LICENSE file for copyright and license details (from suckless). */
 
-/* includes */
-#include "gaplessgrid.c"
+/* includes (would go below if we needed them) */
 
 /* appearance */
 static const char font[]            = "monospace 8";
