@@ -72,7 +72,7 @@ edited and patched by Max Tamer-Mahoney <max@mxtm.me>
 
 /* enums */
 enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
-enum { ColBorder, ColFG, ColBG, ColLast }; /* color */
+enum { ColBorder, ColFG, ColBG, ColBorderFloat, ColLast }; /* color */
 enum { NetSupported, NetWMName, NetWMState,
        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
        NetWMWindowTypeDialog, NetLast }; /* EWMH atoms */
@@ -1005,7 +1005,10 @@ focus(Client *c) {
 		detachstack(c);
 		attachstack(c);
 		grabbuttons(c, True);
-		XSetWindowBorder(dpy, c->win, dc.sel[ColBorder].pixel);
+		if(c->isfloating)
+			XSetWindowBorder(dpy, c->win, dc.sel[ColBorderFloat].pixel);
+		else
+			XSetWindowBorder(dpy, c->win, dc.sel[ColBorder].pixel);
 		setfocus(c);
 	}
 	else
@@ -1326,6 +1329,8 @@ manage(Window w, XWindowAttributes *wa) {
 		c->isfloating = c->oldstate = trans != None || c->isfixed;
 	if(c->isfloating)
 		XRaiseWindow(dpy, c->win);
+	if(c->isfloating)
+		XSetWindowBorder(dpy, w, dc.norm[ColBorderFloat].pixel);
 	attachabove(c);
 	attachstack(c);
 	XMoveResizeWindow(dpy, c->win, c->x + 2 * sw, c->y, c->w, c->h); /* some windows require this */
@@ -1801,9 +1806,11 @@ setup(void) {
 	dc.norm[ColBorder] = getcolor(normbordercolor);
 	dc.norm[ColBG] = getcolor(normbgcolor);
 	dc.norm[ColFG] = getcolor(normfgcolor);
+	dc.norm[ColBorderFloat] = getcolor(fnrmbordercolor);
 	dc.sel[ColBorder] = getcolor(selbordercolor);
 	dc.sel[ColBG] = getcolor(selbgcolor);
 	dc.sel[ColFG] = getcolor(selfgcolor);
+	dc.sel[ColBorderFloat] = getcolor(fselbordercolor);
 	dc.drawable = XCreatePixmap(dpy, root, DisplayWidth(dpy, screen), bh, DefaultDepth(dpy, screen));
 	dc.gc = XCreateGC(dpy, root, 0, NULL);
 	XSetLineAttributes(dpy, dc.gc, 1, LineSolid, CapButt, JoinMiter);
@@ -1928,6 +1935,10 @@ togglefloating(const Arg *arg) {
 		return;
 	selmon->sel->isfloating = !selmon->sel->isfloating || selmon->sel->isfixed;
 	if(selmon->sel->isfloating)
+		XSetWindowBorder(dpy, selmon->sel->win, dc.sel[ColBorderFloat].pixel);
+	else
+		XSetWindowBorder(dpy, selmon->sel->win, dc.sel[ColBorder].pixel);
+	if(selmon->sel->isfloating)
 		resize(selmon->sel, selmon->sel->x, selmon->sel->y,
 		       selmon->sel->w, selmon->sel->h, False);
 	arrange(selmon);
@@ -1983,7 +1994,10 @@ unfocus(Client *c, Bool setfocus) {
 	if(!c)
 		return;
 	grabbuttons(c, False);
-	XSetWindowBorder(dpy, c->win, dc.norm[ColBorder].pixel);
+	if(c->isfloating)
+		XSetWindowBorder(dpy, c->win, dc.norm[ColBorderFloat].pixel);
+	else
+		XSetWindowBorder(dpy, c->win, dc.norm[ColBorder].pixel);
 	if(setfocus)
 		XSetInputFocus(dpy, root, RevertToPointerRoot, CurrentTime);
 }
