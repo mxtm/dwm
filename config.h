@@ -8,6 +8,7 @@ by Max Tamer-Mahoney <max@mxtm.me>
 /* includes */
 #include "gaplessgrid.c"
 #include "fibonacci.c"
+#include "bstack.c"
 
 /* appearance */
 static const char font[]            = "monospace 8";
@@ -41,6 +42,7 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "",        tile },
 	{ "⠶",        gaplessgrid },
+	{ "",        bstack },
 	{ "",        spiral },
 	{ "",        monocle },
 	{ "",        NULL }, /* floating */
