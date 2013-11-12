@@ -60,17 +60,29 @@ static const Layout layouts[] = {
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
+
+/* essential */
 static const char *dmenucmd[] = { "dmenu_run", "-fn", font, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
 static const char *termcmd[]  = { "termite", NULL };
+
+/* screenlock */
 static const char *lockcmd[]  = { "slock", NULL };
+
+/* volume */
 static const char *volmutecmd[] = { "pulseaudio-ctl", "mute", NULL };
 static const char *volupcmd[] = { "pulseaudio-ctl", "up", NULL };
 static const char *voldowncmd[] = { "pulseaudio-ctl", "down", NULL };
+
+/* media */
 static const char *playpausekeycmd[] = { "mpc", "toggle", NULL };
 static const char *backkeycmd[] = { "mpc", "prev", NULL };
 static const char *forwardkeycmd[] = { "mpc", "next", NULL };
+
+/* keyboard layout switching */
 static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
 static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
+
+/* key bindings */
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
