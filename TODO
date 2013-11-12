@@ -1,1 +1,2 @@
-- Find things that I have to do
+- Finish moving all layout functions into dwm.c
+- Repair bstack layout function to correctly tile windows with gaps intact and without extra space to right side
