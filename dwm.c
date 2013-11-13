@@ -209,7 +209,7 @@ static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
 static void gaplessgrid(Monitor *m);
 static XftColor getcolor(const char *colstr);
-static char *getdwmpath();
+/* static char *getdwmpath(); */
 static Bool getrootptr(int *x, int *y);
 static long getstate(Window w);
 static Bool gettextprop(Window w, Atom atom, char *text, unsigned int size);
@@ -1129,7 +1129,7 @@ getcolor(const char *colstr) {
 }
 
 /* function to find dwm's path from the self-restart patch on suckless's website */
-char
+/* char
 *getdwmpath() {
 	struct stat s;
 	int r, length, rate = 42;
@@ -1164,7 +1164,7 @@ char
 	path[r] = '\0';
 
 	return path;
-}
+} */
 
 Bool
 getrootptr(int *x, int *y) {
@@ -1696,7 +1696,7 @@ scan(void) {
 /* initial idea for self-restart without externel script from Yu-Jie Lin */
 void
 restart(const Arg *arg) {
-	char *const argv[] = { getdwmpath(), NULL };
+	char *const argv[] = { "/home/mxtm/.bin/dwm", NULL };
 
 	if(argv[0] == NULL) {
 		return;
