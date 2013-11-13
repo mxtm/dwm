@@ -33,7 +33,6 @@ edited and patched by Max Tamer-Mahoney <max@mxtm.me>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/stat.h>
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <X11/cursorfont.h>
@@ -209,7 +208,6 @@ static void focusmon(const Arg *arg);
 static void focusstack(const Arg *arg);
 static void gaplessgrid(Monitor *m);
 static XftColor getcolor(const char *colstr);
-/* static char *getdwmpath(); */
 static Bool getrootptr(int *x, int *y);
 static long getstate(Window w);
 static Bool gettextprop(Window w, Atom atom, char *text, unsigned int size);
@@ -1128,44 +1126,6 @@ getcolor(const char *colstr) {
 	return color;
 }
 
-/* function to find dwm's path from the self-restart patch on suckless's website */
-/* char
-*getdwmpath() {
-	struct stat s;
-	int r, length, rate = 42;
-	char *path = NULL;
-
-	if(lstat("/proc/self/exe", &s) == -1) {
-		perror("lstat:");
-		return NULL;
-	}
-
-	length = s.st_size + 1 - rate;
-
-	do {
-		length += rate;
-
-		free(path);
-		path = malloc(sizeof(char) * length);
-
-		if(path == NULL) {
-			perror("malloc:");
-			return NULL;
-		}
-
-		r = readlink("/proc/self/exe", path, length);
-
-		if(r == -1) {
-			perror("readlink:");
-			return NULL;
-		}
-	} while(r >= length);
-
-	path[r] = '\0';
-
-	return path;
-} */
-
 Bool
 getrootptr(int *x, int *y) {
 	int di;
@@ -1697,10 +1657,6 @@ scan(void) {
 void
 restart(const Arg *arg) {
 	char *const argv[] = { "/home/mxtm/.bin/dwm", NULL };
-
-	if(argv[0] == NULL) {
-		return;
-	}
 
 	execv(argv[0], argv);
 }
