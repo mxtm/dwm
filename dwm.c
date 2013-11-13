@@ -236,7 +236,7 @@ static void resizemouse(const Arg *arg);
 static void restack(Monitor *m);
 static void run(void);
 static void scan(void);
-static void self_restart(const Arg *arg);
+static void restart(const Arg *arg);
 static Bool sendevent(Client *c, Atom proto);
 static void sendmon(Client *c, Monitor *m);
 static void setclientstate(Client *c, long state);
@@ -1695,7 +1695,7 @@ scan(void) {
 
 /* initial idea for self-restart without externel script from Yu-Jie Lin */
 void
-self_restart(const Arg *arg) {
+restart(const Arg *arg) {
 	char *const argv[] = { getdwmpath(), NULL };
 
 	if(argv[0] == NULL) {

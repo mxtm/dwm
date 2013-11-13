@@ -21,7 +21,7 @@ LIBS = -L/usr/lib -lc -L${X11LIB} -lX11 ${XINERAMALIBS} `pkg-config --libs xft p
 
 # flags
 CPPFLAGS += -DVERSION=\"${VERSION}\" ${XINERAMAFLAGS}
-CFLAGS = -std=gnu99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS}
+CFLAGS = -std=gnu99 -pedantic -Wall -Os ${INCS} ${CPPFLAGS} # using GNU99 so *getdwmpath() doesn't throw warnings
 LDFLAGS = -s ${LIBS}
 
 # compiler and linker
