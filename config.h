@@ -23,6 +23,9 @@ static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
 
+/* path to dwm binary (for restarting) */
+static char dwmpath[] = "/home/mxtm/.bin/dwm";
+
 /* tagging */
 static const char *tags[] = { "一", "二", "三", "四", "五" };
 

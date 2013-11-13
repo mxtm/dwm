@@ -1656,7 +1656,7 @@ scan(void) {
 /* initial idea for self-restart without externel script from Yu-Jie Lin */
 void
 restart(const Arg *arg) {
-	char *const argv[] = { "/home/mxtm/.bin/dwm", NULL };
+	char *const argv[] = { dwmpath, NULL };
 
 	execv(argv[0], argv);
 }
