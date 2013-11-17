@@ -43,8 +43,8 @@ static const Layout layouts[] = {
 	/* symbol     arrange function */
 	/* these layout symbols only appear properly in my patched Tewi */
 	{ "",        tile },
-	{ "⠶",        gaplessgrid },
 	{ "",        bstack },
+	{ "⠶",        gaplessgrid },
 	{ "",        spiral },
 	{ "",        monocle },
 	{ "",        NULL }, /* floating */
