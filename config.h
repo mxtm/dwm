@@ -32,6 +32,7 @@ static const char *tags[] = { "一", "二", "三", "四", "五" };
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
+	{ "Wine",     NULL,       NULL,       0,            True,        -1 },
 };
 
 /* layout(s) */
