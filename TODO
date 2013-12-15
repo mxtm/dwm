@@ -1,2 +1,1 @@
 - Patch in the ability to move and resize windows with keyboard (moveresize patch)
-- Consider replacing GNU99 with plain C99 + ignoring the implicit declarations, to attempt to remain as true to the "real" dwm as possible
