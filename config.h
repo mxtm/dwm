@@ -27,7 +27,7 @@ static const Bool topbar            = False;     /* False means bottom bar */
 static char dwmpath[] = "/home/mxtm/.bin/dwm";
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五", "六" };
+static const char *tags[] = { "一", "二", "三", "四", "五" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -129,7 +129,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-	TAGKEYS(                        XK_6,                      5)
 	{ MODKEY|ShiftMask,             XK_r,      restart,        {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
