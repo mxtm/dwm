@@ -18,7 +18,7 @@ static const char selfgcolor[]      = "#ffffff";
 static const char fnrmbordercolor[] = "#9e6ffe";
 static const char fselbordercolor[] = "#f92671";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 11;        /* gap pixel between windows */
+static const unsigned int gappx     = 14;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = False;     /* False means bottom bar */
@@ -36,7 +36,7 @@ static const Rule rules[] = {
 };
 
 /* layout(s) */
-static const float mfact      = 0.55; /* factor of master area size [0.05..0.95] */
+static const float mfact      = 0.60; /* factor of master area size [0.05..0.95] */
 static const int nmaster      = 1;    /* number of clients in master area */
 static const Bool resizehints = True; /* True means respect size hints in tiled resizals */
 
