@@ -27,7 +27,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static char dwmpath[] = "/home/mxtm/.bin/dwm";
 
 /* tagging */
-static const char *tags[] = { "一", "二", "三", "四", "五" };
+static const char *tags[] = { "١", "٢", "٣", "٤", "٥" };
 
 static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
@@ -45,7 +45,7 @@ static const Layout layouts[] = {
 	/* these layout symbols only appear properly in my patched Tewi */
 	{ "",        tile },
 	{ "",        bstack },
-	{ "⠶",        gaplessgrid },
+	{ "",        gaplessgrid },
 	{ "",        spiral },
 	{ "",        monocle },
 	{ "",        NULL }, /* floating */
