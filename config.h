@@ -86,8 +86,8 @@ static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", 
 static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
 
 /* screenshots with "moomf" (modified poomf.sh) */
-static const char *screenshotwhole[] = { "moomf", "-f", NULL };
-static const char *screenshotselect[] = { "moomf", "-s", NULL };
+static const char *screenshotwhole[] = { "bash", "moomf", "-f", NULL };
+static const char *screenshotselect[] = { "bash", "moomf", "-s", NULL };
 
 /* key bindings */
 
