@@ -85,6 +85,10 @@ static const char *forwardkeycmd[] = { "mpc", "next", NULL };
 static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
 static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
 
+/* screenshots with "moomf" (modified poomf.sh) */
+static const char *screenshotwhole[] = { "moomf", "-f", NULL };
+static const char *screenshotselect[] = { "moomf", "-s", NULL };
+
 /* key bindings */
 
 static Key keys[] = {
@@ -118,12 +122,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
+	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = screenshotwhole } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = screenshotselect } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
