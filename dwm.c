@@ -839,7 +839,7 @@ drawbar(Monitor *m) {
 			dc.x = x;
 			dc.w = m->ww - x;
 		}
-		drawtext(stext, dc.norm, False);
+		drawtext(stext, dc.norm, True);
 	}
 	else
 		dc.x = m->ww;
