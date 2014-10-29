@@ -87,7 +87,7 @@ static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", 
 
 /* screencasts with twily's screencast script, webms */
 static const char *startscreencast[] = { "bash", "screencast", NULL };
-static const char *endscreencast[] = { "bash", "killall", "ffmpeg", NULL };
+static const char *endscreencast[] = { "killall", "ffmpeg", NULL };
 
 /* key bindings */
 
