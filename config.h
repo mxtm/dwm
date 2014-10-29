@@ -85,9 +85,9 @@ static const char *forwardkeycmd[] = { "mpc", "next", NULL };
 static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
 static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
 
-/* screenshots with "moomf" (modified poomf.sh) */
-static const char *screenshotwhole[] = { "bash", "moomf", "-f", NULL };
-static const char *screenshotselect[] = { "bash", "moomf", "-s", NULL };
+/* screencasts with twily's screencast script, webms */
+static const char *startscreencast[] = { "bash", "screencast", NULL };
+static const char *endscreencast[] = { "bash", "killall", "ffmpeg", NULL };
 
 /* key bindings */
 
@@ -128,8 +128,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_m,      spawn,          {.v = screenshotwhole } },
-	{ MODKEY,                       XK_n,      spawn,          {.v = screenshotselect } },
+	{ MODKEY,                       XK_m,      spawn,          {.v = startscreencast } },
+	{ MODKEY,                       XK_n,      spawn,          {.v = endscreencast } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
