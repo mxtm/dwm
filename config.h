@@ -30,9 +30,13 @@ static char dwmpath[] = "/home/mxtm/.bin/dwm";
 static const char *tags[] = { "١", "٢", "٣", "٤", "٥" };
 
 static const Rule rules[] = {
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            True,        -1 },
-	{ "Wine",     NULL,       NULL,       0,            True,        -1 },
+	/* class           instance    title       tags mask     isfloating   monitor */
+	{ "Gimp",           NULL,       NULL,       0,            True,        -1 },
+	{ "Wine",           NULL,       NULL,       0,            True,        -1 },
+	{ "bitcoin-qt",     NULL,       NULL,       4,            True,        -1 },
+	{ "litecoin-qt",    NULL,       NULL,       4,            True,        -1 },
+	{ "dogecoin-qt",    NULL,       NULL,       4,            True,        -1 },
+	{ "fedoracoin-qt",  NULL,       NULL,       4,            True,        -1 },
 };
 
 /* layout(s) */
@@ -82,8 +86,8 @@ static const char *backkeycmd[] = { "mpc", "prev", NULL };
 static const char *forwardkeycmd[] = { "mpc", "next", NULL };
 
 /* keyboard layout switching */
-static const char *englishkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
-static const char *arabickbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
+static const char *engkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
+static const char *arakbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "basic", NULL };
 
 /* screencasts with twily's screencast script, webms */
 static const char *startscreencast[] = { "bash", "screencast", NULL };
@@ -102,8 +106,8 @@ static Key keys[] = {
 	{ 0,                XF86XK_AudioPlay,      spawn,          {.v = playpausekeycmd } },
 	{ 0,                XF86XK_AudioPrev,      spawn,          {.v = backkeycmd } },
 	{ 0,                XF86XK_AudioNext,      spawn,          {.v = forwardkeycmd } },
-	{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = englishkbcmd } },
-	{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = arabickbcmd } },
+	{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = engkbcmd } },
+	{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = arakbcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -128,8 +132,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY,                       XK_m,      spawn,          {.v = startscreencast } },
-	{ MODKEY,                       XK_n,      spawn,          {.v = endscreencast } },
+	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = startscreencast } },
+	{ MODKEY|ShiftMask,             XK_n,      spawn,          {.v = endscreencast } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
@@ -146,10 +150,10 @@ static Button buttons[] = {
 	{ ClkLtSymbol,          0,              Button1,        setlayout,      {0} },
 	{ ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[1]} },
 	{ ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} },
-	{ ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
+	// { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} },
 	{ ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} },
 	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
+	// { ClkTagBar,            0,              Button3,        toggleview,     {0} },
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+	// { ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
