@@ -33,10 +33,10 @@ static const Rule rules[] = {
 	/* class           instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",           NULL,       NULL,       0,            True,        -1 },
 	{ "Wine",           NULL,       NULL,       0,            True,        -1 },
-	{ "bitcoin-qt",     NULL,       NULL,       4,            True,        -1 },
-	{ "litecoin-qt",    NULL,       NULL,       4,            True,        -1 },
-	{ "dogecoin-qt",    NULL,       NULL,       4,            True,        -1 },
-	{ "fedoracoin-qt",  NULL,       NULL,       4,            True,        -1 },
+	// { "Bitcoin-qt",     NULL,       NULL,       5,            True,        -1 },
+	// { "Litecoin-qt",    NULL,       NULL,       5,            True,        -1 },
+	// { "Dogecoin-qt",    NULL,       NULL,       5,            True,        -1 },
+	// { "Fedoracoin-qt",  NULL,       NULL,       5,            True,        -1 },
 };
 
 /* layout(s) */
