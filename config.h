@@ -33,6 +33,7 @@ static const Rule rules[] = {
 	/* class           instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",           NULL,       NULL,       0,            True,        -1 },
 	{ "Wine",           NULL,       NULL,       0,            True,        -1 },
+	{ "mpv",            NULL,       NULL,       0,            True,        -1 },
 	// { "Bitcoin-qt",     NULL,       NULL,       5,            True,        -1 },
 	// { "Litecoin-qt",    NULL,       NULL,       5,            True,        -1 },
 	// { "Dogecoin-qt",    NULL,       NULL,       5,            True,        -1 },
@@ -76,9 +77,9 @@ static const char *termcmd[]  = { "termite", NULL };
 static const char *lockcmd[]  = { "slock", NULL };
 
 /* volume */
-static const char *volmutecmd[] = { "pulseaudio-ctl", "mute", NULL };
-static const char *volupcmd[] = { "pulseaudio-ctl", "up", NULL };
-static const char *voldowncmd[] = { "pulseaudio-ctl", "down", NULL };
+static const char *volmutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
 
 /* media */
 static const char *playpausekeycmd[] = { "mpc", "toggle", NULL };
