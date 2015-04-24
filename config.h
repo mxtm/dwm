@@ -18,7 +18,7 @@ static const char selfgcolor[]      = "#ffffff";
 static const char fnrmbordercolor[] = "#9e6ffe";
 static const char fselbordercolor[] = "#f92671";
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
-static const unsigned int gappx     = 14;        /* gap pixel between windows */
+static const unsigned int gappx     = 10;        /* gap pixel between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const Bool showbar           = True;     /* False means no bar */
 static const Bool topbar            = True;     /* False means bottom bar */
@@ -27,7 +27,7 @@ static const Bool topbar            = True;     /* False means bottom bar */
 static char dwmpath[] = "/home/mxtm/.bin/dwm";
 
 /* tagging */
-static const char *tags[] = { "١", "٢", "٣", "٤", "٥" };
+static const char *tags[] = { "١", "٢", "٣", "٤", "٥", "٦" };
 
 static const Rule rules[] = {
 	/* class           instance    title       tags mask     isfloating   monitor */
@@ -140,6 +140,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
 	{ MODKEY|ShiftMask,             XK_r,      restart,        {0} },
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
