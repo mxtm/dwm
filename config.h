@@ -1,6 +1,6 @@
 /*
 dwm config.h
-by Max Tamer-Mahoney <max@mxtm.me>
+by Max T-M <max@mxtm.me>
 */
 
 /* See LICENSE file for copyright and license details (from suckless). */
@@ -34,6 +34,7 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,       NULL,       0,            True,        -1 },
 	{ "Wine",           NULL,       NULL,       0,            True,        -1 },
 	{ "mpv",            NULL,       NULL,       0,            True,        -1 },
+	{ "VirtualBox",     NULL,       NULL,       0,            True,        -1 }
 	// { "Bitcoin-qt",     NULL,       NULL,       5,            True,        -1 },
 	// { "Litecoin-qt",    NULL,       NULL,       5,            True,        -1 },
 	// { "Dogecoin-qt",    NULL,       NULL,       5,            True,        -1 },
