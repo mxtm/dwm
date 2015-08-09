@@ -34,11 +34,8 @@ static const Rule rules[] = {
 	{ "Gimp",           NULL,       NULL,       0,            True,        -1 },
 	{ "Wine",           NULL,       NULL,       0,            True,        -1 },
 	{ "mpv",            NULL,       NULL,       0,            True,        -1 },
-	{ "VirtualBox",     NULL,       NULL,       0,            True,        -1 }
-	// { "Bitcoin-qt",     NULL,       NULL,       5,            True,        -1 },
-	// { "Litecoin-qt",    NULL,       NULL,       5,            True,        -1 },
-	// { "Dogecoin-qt",    NULL,       NULL,       5,            True,        -1 },
-	// { "Fedoracoin-qt",  NULL,       NULL,       5,            True,        -1 },
+	{ "VirtualBox",     NULL,       NULL,       0,            True,        -1 },
+	{ "Mullvad",        NULL,       NULL,       0,            True,        -1 }
 };
 
 /* layout(s) */
