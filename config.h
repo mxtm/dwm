@@ -102,6 +102,9 @@ static const char *arakbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "bu
 /* crn typer */
 static const char *crncmd[] = { "crn", NULL };
 
+/* quit confirmation dmenu script */
+static const char *quitcmd[] = { "power", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -146,7 +149,7 @@ static Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = quitcmd } },
 };
 
 /* button definitions */
