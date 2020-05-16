@@ -88,15 +88,6 @@ static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL }
 static const char *volupcmd[] = { "amixer", "sset", "Master", "5%+", NULL };
 static const char *voldowncmd[] = { "amixer", "sset", "Master", "5%-", NULL };
 
-/* media */
-static const char *playpausekeycmd[] = { "mpc", "toggle", NULL };
-static const char *backkeycmd[] = { "mpc", "prev", NULL };
-static const char *forwardkeycmd[] = { "mpc", "next", NULL };
-
-/* keyboard layout switching */
-static const char *engkbcmd[] = { "setxkbmap", "-layout", "us", "-variant", "altgr-intl", NULL };
-static const char *arakbcmd[] = { "setxkbmap", "-layout", "ara", "-variant", "buckwalter", NULL };
-
 /* crn typer */
 static const char *crncmd[] = { "crn", NULL };
 
@@ -112,11 +103,6 @@ static Key keys[] = {
 	{ 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volupcmd } },
 	{ 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = voldowncmd } },
 	{ 0,                  XF86XK_LaunchA,      spawn,          {.v = crncmd } },
-	//{ 0,                XF86XK_AudioPlay,      spawn,          {.v = playpausekeycmd } },
-	//{ 0,                XF86XK_AudioPrev,      spawn,          {.v = backkeycmd } },
-	//{ 0,                XF86XK_AudioNext,      spawn,          {.v = forwardkeycmd } },
-	//{ 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = engkbcmd } },
-	//{ 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = arakbcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
