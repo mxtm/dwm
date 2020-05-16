@@ -1,4 +1,5 @@
 #include <X11/XF86keysym.h>
+#include "fibonacci.c"
 
 /* See LICENSE file for copyright and license details. */
 
@@ -56,6 +57,7 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 static const Layout layouts[] = {
 	/* symbol     arrange function */
 	{ "||-",        tile },    /* first entry is default */
+	{ "<@>",        dwindle},
 	//{ "H",        htile },
 	{ "<|>",        monocle },
 	{ "<~>",        NULL },    /* no layout function means floating behavior */
@@ -130,7 +132,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_w,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_e,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_r,      setlayout,      {.v = &layouts[2]} },
-	// { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	// { MODKEY,                       XK_0,      view,           {.ui = ~0 } },
