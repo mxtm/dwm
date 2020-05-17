@@ -23,7 +23,7 @@ static const char *colors[][3] 		= {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6" };
+static const char *tags[] = { "", "", "", "", "", ""};
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -81,7 +81,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "termite", NULL };
 
 /* screenlock */
-static const char *lockcmd[]  = { "slock", NULL };
+static const char *lockcmd[]  = { "xsecurelock", NULL };
 
 /* volume */
 static const char *volmutecmd[] = { "amixer", "sset", "Master", "toggle", NULL };
