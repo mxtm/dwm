@@ -78,7 +78,7 @@ static const Layout layouts[] = {
 /* essentials */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "termite", NULL };
+static const char *termcmd[]  = { "kitty", NULL };
 
 /* screenlock */
 static const char *lockcmd[]  = { "xsecurelock", NULL };
