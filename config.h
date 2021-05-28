@@ -46,7 +46,8 @@ static const Rule rules[] = {
 	{ "zoom",           NULL,       NULL,       0,            True,        -1 },
 	{ NULL,             NULL,       "Eddie",    0,            True,        -1 },
 	{ "VirtualBox Machine",       NULL,       NULL,       1 << 5,            False,        -1 },
-	{ "VirtualBox Manager",       NULL,       NULL,       1 << 4,            False,        -1 }
+	{ "VirtualBox Manager",       NULL,       NULL,       1 << 4,            False,        -1 },
+	{ "Virt-manager",   NULL,       NULL,       0,            True,        -1 }
 };
 
 /* layout(s) */
